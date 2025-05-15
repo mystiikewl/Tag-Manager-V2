@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Category Manager</title>
+    <link href="/static/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="h-screen flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-100 shadow-lg overflow-y-auto">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-4">Products</h2>
+                <select id="productSelect" class="w-full p-2 border rounded mb-4">
+                    <option value="">Select a product...</option>
+                </select>
+                
+                <!-- Category Management Section -->
+                <div class="mt-8">
+                    <h2 class="text-lg font-semibold mb-4">Category Management</h2>
+                    <button id="export-csv-btn" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 flex items-center shadow-md">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Export CSV
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <div class="p-8">
+                <!-- Current Product Header -->
+                <div class="mb-6">
+                    <h1 class="text-2xl font-bold" id="product-name">No product selected</h1>
+                    <p class="text-gray-600" id="product-handle"></p>
+                </div>
+                <!-- Category Management -->
+                <div class="bg-white rounded-lg shadow p-6 mb-6 max-w-6xl mx-auto">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Categories</h2>
+                        <button id="add-category-btn" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                            Add Category
+                        </button>
+                    </div>
+
+                    <!-- Current Categories -->
+                    <div id="current-categories" class="space-y-3 mb-6">
+                        <!-- Category chips will be populated here -->
+                    </div>
+
+                    <!-- Add Category Form (hidden by default) -->
+                    <div id="add-category-form" class="border-t pt-4 hidden">
+                        <label class="block text-sm font-medium text-gray-700 mb-4">Select Categories</label>
+                        
+                        <!-- Category Selection Grid -->
+                        <div class="space-y-4">
+                            <!-- Level 1 Categories -->
+                            <div class="border rounded-lg p-4 bg-gray-50">
+                                <h3 class="text-sm font-medium text-gray-700 mb-2">Level 1 Categories</h3>
+                                <div id="level1-categories" class="flex flex-wrap gap-4 p-4 bg-white rounded-lg shadow">
+                                    <!-- Level 1 categories will be populated here -->
+                                </div>
+                            </div>
+
+                            <!-- Level 2 Categories -->
+                            <div class="border rounded-lg p-4 bg-gray-50">
+                                <h3 class="text-sm font-medium text-gray-700 mb-2">Level 2 Categories</h3>
+                                <div id="level2-categories" class="flex flex-wrap gap-4 p-4 bg-white rounded-lg shadow">
+                                    <!-- Level 2 categories will be populated here -->
+                                </div>
+                            </div>
+
+                            <!-- Level 3 Categories -->
+                            <div class="border rounded-lg p-4 bg-gray-50">
+                                <h3 class="text-sm font-medium text-gray-700 mb-2">Level 3 Categories</h3>
+                                <div id="level3-categories" class="flex flex-wrap gap-4 p-4 bg-white rounded-lg shadow">
+                                    <!-- Level 3 categories will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Selected Categories Summary -->
+                        <div class="mt-4">
+                            <h3 class="text-sm font-medium text-gray-700 mb-2">Selected Categories</h3>
+                            <div id="selected-categories" class="flex flex-wrap gap-2">
+                                <!-- Selected categories will be displayed here -->
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex justify-end space-x-3 mt-4">
+                            <button id="cancel-add-category" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">
+                                Cancel
+                            </button>
+                            <button id="confirm-add-category" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 flex items-center">
+                                <span id="add-button-text">Add Selected Categories</span>
+                                <svg id="loading-spinner" class="hidden animate-spin ml-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category Creation Section -->
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h2 class="text-lg font-semibold">Create New Category</h2>
+                            <p class="text-sm text-gray-600 mt-1">Create new categories to organize your products. Categories can be organized in a three-level hierarchy.</p>
+                        </div>
+                        <button id="newCategoryBtn" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                            New Category
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category Creation Modal -->
+                <div id="categoryModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+                    <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                        <div class="mt-3">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-medium leading-6 text-gray-900">Create New Category</h3>
+                                <button id="cancelCategoryBtn" class="text-gray-400 hover:text-gray-500">
+                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <form id="categoryForm" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Category Name</label>
+                                    <input type="text" id="categoryName" class="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Category Level</label>
+                                    <select id="categoryLevel" class="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                                        <option value="">Select level...</option>
+                                        <option value="1">Level 1 (Top Level)</option>
+                                        <option value="2">Level 2 (Sub Category)</option>
+                                        <option value="3">Level 3 (Detailed Category)</option>
+                                    </select>
+                                </div>
+                                <div id="parentCategoryDiv" class="hidden">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Parent Category</label>
+                                    <select id="parentCategory" class="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="">Select parent category...</option>
+                                    </select>
+                                </div>
+                                <div class="flex justify-end space-x-3 pt-4">
+                                    <button type="button" id="cancelCategoryBtn2" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">Cancel</button>
+                                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Create Category</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Success Message -->
+    <div id="success-message" class="hidden fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded shadow-lg transition-opacity duration-500 z-50">
+        Category successfully added!
+    </div>
+
+    <!-- Include JavaScript files -->
+    <script src="/static/js/utils.js" defer></script>
+    <script src="/static/js/appState.js" defer></script>
+    <script src="/static/js/domElements.js" defer></script>
+    <script src="/static/js/apiService.js" defer></script>
+    <script src="/static/js/uiHandlers.js" defer></script>
+    <script src="/static/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# API Patterns
+
+## Endpoints
+
+### Products
+- `GET /api/products`
+  - Returns list of all products
+  - Response: `[{product_id, product_name, product_handle}]`
+
+- `GET /api/products/{product_id}/categories`
+  - Returns categories for a specific product
+  - Response: `[{id, name, level, parent_id}]`
+
+- `POST /api/products/{product_id}/categories`
+  - Assigns categories to a product
+  - Request body: `{category_ids: number[]}`
+  - Response: Success message or error
+
+- `DELETE /api/products/{product_id}/category/{category_id}`
+  - Removes a category from a product
+  - Response: Success message or error
+
+### Categories
+- `GET /api/categories/level1`
+  - Returns all level 1 categories
+  - Response: `[{id, name, level, hasChildren}]`
+
+- `GET /api/categories/level{level}/{parent_id}`
+  - Returns categories for a specific level and parent
+  - Response: `[{id, name, level, hasChildren}]`
+
+- `POST /api/categories/create`
+  - Creates a new category
+  - Request body: `{name, level, parent_id?}`
+  - Response: Created category or error
+
+### Export
+- `GET /api/export/csv`
+  - Exports product categories to CSV
+  - Query params: `product_id`
+  - Response: CSV file download
+
+## Response Patterns
+
+### Success Responses
+- 200 OK for successful GET requests
+- 201 Created for successful POST requests
+- 204 No Content for successful DELETE requests
+
+### Error Responses
+- 400 Bad Request for invalid input
+- 404 Not Found for missing resources
+- 409 Conflict for duplicate categories
+- 500 Internal Server Error for server issues
+
+### Error Format
+```json
+{
+  "error": "Error message",
+  "details": {
+    "existing_category": {...},
+    "attempted_category": {...}
+  }
+}
+```
+
+## Data Validation
+- Input validation using Pydantic models
+- Unique constraint checks for categories
+- Parent-child relationship validation
+- Required field validation
+
+## Security
+- Input sanitization
+- SQL injection prevention
+- XSS protection
+- CSRF protection
+

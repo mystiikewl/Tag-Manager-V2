@@ -1,0 +1,907 @@
+[
+  {
+    "category_name": "Adhesives & Sealants",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Waterproofing Products",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Tiling Products",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Adhesion Promoters & Primers",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Concrete Preparation & Repairs",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Pedestal Systems",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Trafficable & Protective Coatings",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Floor Wastes & Channels",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Trims & Angles",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Foam & Backing Rod",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Solvents & Thinners",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Tapes",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Trade Tools",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Safety & PPE",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Adhesives",
+    "category_level": "Level 2 Category",
+    "connected_to": "Adhesives & Sealants"
+  },
+  {
+    "category_name": "Sealants",
+    "category_level": "Level 2 Category",
+    "connected_to": "Adhesives & Sealants"
+  },
+  {
+    "category_name": "Industry Adhesives",
+    "category_level": "Level 2 Category",
+    "connected_to": "Adhesives & Sealants"
+  },
+  {
+    "category_name": "Adhesive and Sealant Primers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Adhesives & Sealants"
+  },
+  {
+    "category_name": "Waterproofing Membranes",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Swellable Waterstops",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Vapour Barriers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Waterproofing Primers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Waterproof Sealers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Angles & Trims",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Waterproofing Protection",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Hobs",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Joints & Junctions",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Trade Tools",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Negative Waterproofing",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Tile Adhesives",
+    "category_level": "Level 2 Category",
+    "connected_to": "Tiling Products"
+  },
+  {
+    "category_name": "Trade Tools",
+    "category_level": "Level 2 Category",
+    "connected_to": "Tiling Products"
+  },
+  {
+    "category_name": "Tiling Grouts",
+    "category_level": "Level 2 Category",
+    "connected_to": "Tiling Products"
+  },
+  {
+    "category_name": "Angles & Trims",
+    "category_level": "Level 2 Category",
+    "connected_to": "Tiling Products"
+  },
+  {
+    "category_name": "Primers & Additives",
+    "category_level": "Level 2 Category",
+    "connected_to": "Tiling Products"
+  },
+  {
+    "category_name": "Levelling Clips & Spacers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Tiling Products"
+  },
+  {
+    "category_name": "Autoglass Primers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Adhesion Promoters & Primers"
+  },
+  {
+    "category_name": "Construction Primers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Adhesion Promoters & Primers"
+  },
+  {
+    "category_name": "Industrial Primers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Adhesion Promoters & Primers"
+  },
+  {
+    "category_name": "Waterproofing Primers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Adhesion Promoters & Primers"
+  },
+  {
+    "category_name": "Aggregates",
+    "category_level": "Level 2 Category",
+    "connected_to": "Concrete Preparation & Repairs"
+  },
+  {
+    "category_name": "EverKrete Concrete Repair System",
+    "category_level": "Level 2 Category",
+    "connected_to": "Concrete Preparation & Repairs"
+  },
+  {
+    "category_name": "Additives & Compounds",
+    "category_level": "Level 2 Category",
+    "connected_to": "Concrete Preparation & Repairs"
+  },
+  {
+    "category_name": "Crack Injection Products",
+    "category_level": "Level 2 Category",
+    "connected_to": "Concrete Preparation & Repairs"
+  },
+  {
+    "category_name": "Levelling Compounds",
+    "category_level": "Level 2 Category",
+    "connected_to": "Concrete Preparation & Repairs"
+  },
+  {
+    "category_name": "Floor Wastes",
+    "category_level": "Level 2 Category",
+    "connected_to": "Floor Wastes & Channels"
+  },
+  {
+    "category_name": "Channels",
+    "category_level": "Level 2 Category",
+    "connected_to": "Floor Wastes & Channels"
+  },
+  {
+    "category_name": "Closed Cell Backing Road",
+    "category_level": "Level 2 Category",
+    "connected_to": "Foam & Backing Rod"
+  },
+  {
+    "category_name": "Open Cell Backing Rod",
+    "category_level": "Level 2 Category",
+    "connected_to": "Foam & Backing Rod"
+  },
+  {
+    "category_name": "Bitumen Impregnated",
+    "category_level": "Level 2 Category",
+    "connected_to": "Foam & Backing Rod"
+  },
+  {
+    "category_name": "Caulking Guns",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Caulking Accessories",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Paint Accessories",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Plastic Pails & Containers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Trowels & Scrapers",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Knives & Blades",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Mixing Paddles",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Industrial Wipes & Rags",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Tape Measures",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Sponges",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Chalk Line",
+    "category_level": "Level 2 Category",
+    "connected_to": "Trade Tools"
+  },
+  {
+    "category_name": "Eye Protection",
+    "category_level": "Level 2 Category",
+    "connected_to": "Safety & PPE"
+  },
+  {
+    "category_name": "Face Protection",
+    "category_level": "Level 2 Category",
+    "connected_to": "Safety & PPE"
+  },
+  {
+    "category_name": "Head Protection",
+    "category_level": "Level 2 Category",
+    "connected_to": "Safety & PPE"
+  },
+  {
+    "category_name": "Hand Protection",
+    "category_level": "Level 2 Category",
+    "connected_to": "Safety & PPE"
+  },
+  {
+    "category_name": "Work Overalls",
+    "category_level": "Level 2 Category",
+    "connected_to": "Safety & PPE"
+  },
+  {
+    "category_name": "Respiratory Masks",
+    "category_level": "Level 2 Category",
+    "connected_to": "Safety & PPE"
+  },
+  {
+    "category_name": "Acrylic Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Adhesives"
+  },
+  {
+    "category_name": "Contact Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Adhesives"
+  },
+  {
+    "category_name": "Cyanoacrylate Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Adhesives"
+  },
+  {
+    "category_name": "Epoxy Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Adhesives"
+  },
+  {
+    "category_name": "Hot Melt Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Adhesives"
+  },
+  {
+    "category_name": "Hybrid MS Polymer Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Adhesives"
+  },
+  {
+    "category_name": "MMA Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Adhesives"
+  },
+  {
+    "category_name": "Polyurethane Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Adhesives"
+  },
+  {
+    "category_name": "PVA Glues",
+    "category_level": "Level 3 Category",
+    "connected_to": "Adhesives"
+  },
+  {
+    "category_name": "Acrylic Sealants",
+    "category_level": "Level 3 Category",
+    "connected_to": "Sealants"
+  },
+  {
+    "category_name": "Hybrid MS Polymer Sealants",
+    "category_level": "Level 3 Category",
+    "connected_to": "Sealants"
+  },
+  {
+    "category_name": "Polyurethane Sealants",
+    "category_level": "Level 3 Category",
+    "connected_to": "Sealants"
+  },
+  {
+    "category_name": "Silicone Sealants",
+    "category_level": "Level 3 Category",
+    "connected_to": "Sealants"
+  },
+  {
+    "category_name": "Auto Body Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Industry Adhesives"
+  },
+  {
+    "category_name": "Auto Glass Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Industry Adhesives"
+  },
+  {
+    "category_name": "Flooring Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Industry Adhesives"
+  },
+  {
+    "category_name": "Marine Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Industry Adhesives"
+  },
+  {
+    "category_name": "Wood Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Industry Adhesives"
+  },
+  {
+    "category_name": "Stone & Masonry Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Industry Adhesives"
+  },
+  {
+    "category_name": "Solvent Free Membranes",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Membranes"
+  },
+  {
+    "category_name": "Cementitious Membranes",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Membranes"
+  },
+  {
+    "category_name": "Solvent Based Membranes",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Membranes"
+  },
+  {
+    "category_name": "Rubber Membranes",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Membranes"
+  },
+  {
+    "category_name": "Trafficable Membranes",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Membranes"
+  },
+  {
+    "category_name": "PVC Sheet Membranes",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Membranes"
+  },
+  {
+    "category_name": "Butyl Rubber Sheet Membranes",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Membranes"
+  },
+  {
+    "category_name": "Bitumen Sheet Membranes",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Membranes"
+  },
+  {
+    "category_name": "Membrane Additives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Membranes"
+  },
+  {
+    "category_name": "Epoxy Primers",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Primers"
+  },
+  {
+    "category_name": "Water Based Primers",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Primers"
+  },
+  {
+    "category_name": "Solvent Based Primers",
+    "category_level": "Level 3 Category",
+    "connected_to": "Waterproofing Primers"
+  },
+  {
+    "category_name": "Tile Angles",
+    "category_level": "Level 3 Category",
+    "connected_to": "Angles & Trims"
+  },
+  {
+    "category_name": "Balcony Angles",
+    "category_level": "Level 3 Category",
+    "connected_to": "Angles & Trims"
+  },
+  {
+    "category_name": "Plastic Angles",
+    "category_level": "Level 3 Category",
+    "connected_to": "Angles & Trims"
+  },
+  {
+    "category_name": "Waterstop Trims",
+    "category_level": "Level 3 Category",
+    "connected_to": "Angles & Trims"
+  },
+  {
+    "category_name": "Cartridge Caulking Guns",
+    "category_level": "Level 3 Category",
+    "connected_to": "Caulking Guns"
+  },
+  {
+    "category_name": "Cordless Caulking Guns",
+    "category_level": "Level 3 Category",
+    "connected_to": "Caulking Guns"
+  },
+  {
+    "category_name": "Twin Cartridge Guns",
+    "category_level": "Level 3 Category",
+    "connected_to": "Caulking Guns"
+  },
+  {
+    "category_name": "Sausage Caulking Guns",
+    "category_level": "Level 3 Category",
+    "connected_to": "Caulking Guns"
+  },
+  {
+    "category_name": "Caulking Gun Nozzles",
+    "category_level": "Level 3 Category",
+    "connected_to": "Caulking Accessories"
+  },
+  {
+    "category_name": "Finishing Tools",
+    "category_level": "Level 3 Category",
+    "connected_to": "Caulking Accessories"
+  },
+  {
+    "category_name": "Masking Tape",
+    "category_level": "Level 3 Category",
+    "connected_to": "Caulking Accessories"
+  },
+  {
+    "category_name": "Clean Up Wipes",
+    "category_level": "Level 3 Category",
+    "connected_to": "Caulking Accessories"
+  },
+  {
+    "category_name": "Caulking Gun Spare Parts",
+    "category_level": "Level 3 Category",
+    "connected_to": "Caulking Accessories"
+  },
+  {
+    "category_name": "Paint Brushes",
+    "category_level": "Level 3 Category",
+    "connected_to": "Paint Accessories"
+  },
+  {
+    "category_name": "Roller Frames",
+    "category_level": "Level 3 Category",
+    "connected_to": "Paint Accessories"
+  },
+  {
+    "category_name": "Extension Poles",
+    "category_level": "Level 3 Category",
+    "connected_to": "Paint Accessories"
+  },
+  {
+    "category_name": "Roller Sleeves",
+    "category_level": "Level 3 Category",
+    "connected_to": "Paint Accessories"
+  },
+  {
+    "category_name": "Paint Trays",
+    "category_level": "Level 3 Category",
+    "connected_to": "Paint Accessories"
+  },
+  {
+    "category_name": "Industries",
+    "category_level": "Level 1 Category",
+    "connected_to": null
+  },
+  {
+    "category_name": "Waterproofing",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Roofing",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Tiling",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Flooring",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Masonry",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Stone Benchtops",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Glass & Aluminium",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Joinery & Cabinets",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Sheet Metal",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Civil Construction",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Caulking",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Autoglass",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Caravan & Truck Body Manufacturing",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Signage",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Marine",
+    "category_level": "Level 2 Category",
+    "connected_to": "Industries"
+  },
+  {
+    "category_name": "Waterproofing Accessories",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Fatra PVC Waterproofing Accessories",
+    "category_level": "Level 2 Category",
+    "connected_to": "Waterproofing Products"
+  },
+  {
+    "category_name": "Screeds",
+    "category_level": "Level 2 Category",
+    "connected_to": "Tiling Products"
+  },
+  {
+    "category_name": "Vendors",
+    "category_level": "Level 1 Category",
+    "connected_to": "null"
+  },
+  {
+    "category_name": "ADA",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Adheseal",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Alpha",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Armadillo",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "ART Australia",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "B.A.T",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Bostik",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Buzon",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Cement Australia",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Dowsil",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "DTA",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Ductmate",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Duram",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Efflock",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Enviro Pacific",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "EverKrete",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Fatra",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "GCP",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Geofabrics",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Great Aussie Wipes",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Green Mountain International",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Gripset",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "H.B Fuller",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Husky Tape",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Kwikmask",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Lauxes Grates",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Leister",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Mapei",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Maxisafe",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Maxitech",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Megapoxy",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Panther",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Pasco",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Permabond",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Pica",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Powertech",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "RLA",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Rokset",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Sealants Australasia",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Selsil",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Sika",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Sterling",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Stylus Tapes",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Waterstop Streamline",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Wondercap",
+    "category_level": "Level 2 Category",
+    "connected_to": "Vendors"
+  },
+  {
+    "category_name": "Tiling Adhesives",
+    "category_level": "Level 3 Category",
+    "connected_to": "Adhesives"
+  }
+]

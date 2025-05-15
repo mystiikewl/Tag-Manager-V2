@@ -1,0 +1,94 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Category Management
+
+## Category Hierarchy
+
+### Structure
+- Three-level hierarchical system:
+  1. Level 1: Top-level categories
+  2. Level 2: Sub-categories (must have Level 1 parent)
+  3. Level 3: Detailed categories (must have Level 2 parent)
+
+### Rules
+- Each category must have a unique name within its level and parent
+- Level 1 categories have no parent
+- Level 2 categories must have a Level 1 parent
+- Level 3 categories must have a Level 2 parent
+- Categories can have multiple children
+- A category can only have one parent
+
+## Category Operations
+
+### Creation
+- Name must be unique within level and parent
+- Level must be specified (1, 2, or 3)
+- Parent ID required for levels 2 and 3
+- Validation checks:
+  - Name uniqueness
+  - Parent existence
+  - Level validity
+  - Parent level compatibility
+
+### Assignment
+- Products can have multiple categories
+- Categories can be assigned to multiple products
+- Assignment validation:
+  - Category existence
+  - Product existence
+  - No duplicate assignments
+
+### Removal
+- Categories can be removed from products
+- Category removal doesn't delete the category
+- Orphaned categories are allowed
+
+## Data Structure
+
+### Category Object
+```json
+{
+  "id": "number",
+  "name": "string",
+  "level": "number",
+  "parent_id": "number?",
+  "hasChildren": "boolean"
+}
+```
+
+### Product-Category Mapping
+```json
+{
+  "product_id": "number",
+  "category_id": "number"
+}
+```
+
+## UI Representation
+
+### Category Display
+- Color coding by level:
+  - Level 1: Blue
+  - Level 2: Red
+  - Level 3: Green
+- Hierarchical indentation
+- Parent-child relationships shown
+- Interactive selection
+
+### Category Selection
+- Checkbox-based selection
+- Multi-select support
+- Parent-child relationship awareness
+- Visual feedback for selection state
+
+## Export Format
+
+### CSV Structure
+- Product information
+- Assigned categories
+- Category hierarchy
+- Level information
+- Parent relationships

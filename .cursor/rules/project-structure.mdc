@@ -1,0 +1,42 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Project Structure
+
+This is a web application for managing product categories with a hierarchical structure. The application follows a client-server architecture with a FastAPI backend and a modern frontend using Tailwind CSS.
+
+## Core Components
+
+### Frontend
+- `templates/index.html`: Main application interface
+  - Uses Tailwind CSS for styling
+  - Implements a responsive layout with sidebar and main content area
+  - Handles category management UI and interactions
+
+### Backend
+- `app.py`: Main FastAPI application
+  - Defines API endpoints for product and category management
+  - Handles database operations and business logic
+
+### Database
+- Uses SQLite for data storage
+- Tables:
+  - `products`: Stores product information
+  - `categories`: Stores category hierarchy
+  - `product_categories`: Maps products to categories
+
+## Key Features
+- Product selection and management
+- Three-level category hierarchy
+- Category creation and assignment
+- CSV export functionality
+- Real-time updates and notifications
+
+## Development Guidelines
+- Follow PEP 8 style guide
+- Use type hints for all functions
+- Implement comprehensive error handling
+- Maintain clear separation of concerns
+- Document all API endpoints

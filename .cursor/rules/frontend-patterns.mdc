@@ -1,0 +1,79 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Frontend Patterns
+
+## UI Components
+
+### Layout
+- Sidebar navigation for product selection
+- Main content area with category management
+- Modal dialogs for category creation
+- Success notifications for user feedback
+
+### Category Management
+- Category chips with color coding by level:
+  - Level 1: Blue
+  - Level 2: Red
+  - Level 3: Green
+- Interactive category selection grid
+- Hierarchical category display
+- Remove category functionality
+
+### Forms and Inputs
+- Product selection dropdown
+- Category creation form with:
+  - Name input
+  - Level selection
+  - Parent category selection (for levels 2 and 3)
+- Category selection checkboxes
+
+### Loading States
+- Spinner animation for async operations
+- Disabled buttons during loading
+- Loading text indicators
+
+### Error Handling
+- Alert messages for errors
+- Form validation feedback
+- Graceful error recovery
+
+## JavaScript Patterns
+
+### Event Handling
+- Event delegation for dynamic elements
+- Async/await for API calls
+- Promise-based error handling
+
+### State Management
+- Global variables for current state
+- Set data structure for selected categories
+- DOM updates for state changes
+
+### API Integration
+- Fetch API for backend communication
+- JSON data handling
+- Error response processing
+
+### UI Updates
+- Dynamic element creation
+- Class toggling for visibility
+- Smooth transitions and animations
+
+## CSS Patterns
+
+### Tailwind Classes
+- Responsive design utilities
+- Flexbox and Grid layouts
+- Color schemes and themes
+- Shadow and hover effects
+- Transition animations
+
+### Component Styling
+- Consistent spacing and padding
+- Card-based layouts
+- Interactive hover states
+- Modal overlays
+- Form input styling

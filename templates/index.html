@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Category Manager</title>
+    <link href="/static/output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="h-screen flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-100 shadow-lg overflow-y-auto">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-4">Products</h2>
+                <select id="productSelect" class="w-full p-2 border rounded mb-4">
+                    <option value="">Select a product...</option>
+                </select>
+                
+                <!-- Category Management Section -->
+                <div class="mt-8">
+                    <h2 class="text-lg font-semibold mb-4">Category Management</h2>
+                    <button id="export-csv-btn" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 flex items-center shadow-md">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Export CSV
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <div class="p-8">
+                <!-- Current Product Header -->
+                <div class="mb-6">
+                    <h1 class="text-2xl font-bold" id="product-name">No product selected</h1>
+                    <p class="text-gray-600" id="product-handle"></p>
+                </div>
+                <!-- Category Management -->
+                <div class="bg-white rounded-lg shadow p-6 mb-6 max-w-6xl mx-auto">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-semibold">Categories</h2>
+                        <button id="add-category-btn" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+                            Add Category
+                        </button>
+                    </div>
+
+                    <!-- Current Categories -->
+                    <div id="current-categories" class="space-y-3 mb-6">
+                        <!-- Category chips will be populated here -->
+                    </div>
+
+                    <!-- Add Category Form (hidden by default) -->
+                    <div id="add-category-form" class="border-t pt-4 hidden">
+                        <label class="block text-sm font-medium text-gray-700 mb-4">Select Categories</label>
+                        
+                        <!-- Category Selection Grid -->
+                        <div class="space-y-4">
+                            <!-- Level 1 Categories -->
+                            <div class="border rounded-lg p-4 bg-gray-50">
+                                <h3 class="text-sm font-medium text-gray-700 mb-2">Level 1 Categories</h3>
+                                <div id="level1-categories" class="flex flex-wrap gap-4 p-4 bg-white rounded-lg shadow">
+                                    <!-- Level 1 categories will be populated here -->
+                                </div>
+                            </div>
+
+                            <!-- Level 2 Categories -->
+                            <div class="border rounded-lg p-4 bg-gray-50">
+                                <h3 class="text-sm font-medium text-gray-700 mb-2">Level 2 Categories</h3>
+                                <div id="level2-categories" class="flex flex-wrap gap-4 p-4 bg-white rounded-lg shadow">
+                                    <!-- Level 2 categories will be populated here -->
+                                </div>
+                            </div>
+
+                            <!-- Level 3 Categories -->
+                            <div class="border rounded-lg p-4 bg-gray-50">
+                                <h3 class="text-sm font-medium text-gray-700 mb-2">Level 3 Categories</h3>
+                                <div id="level3-categories" class="flex flex-wrap gap-4 p-4 bg-white rounded-lg shadow">
+                                    <!-- Level 3 categories will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Selected Categories Summary -->
+                        <div class="mt-4">
+                            <h3 class="text-sm font-medium text-gray-700 mb-2">Selected Categories</h3>
+                            <div id="selected-categories" class="flex flex-wrap gap-2">
+                                <!-- Selected categories will be displayed here -->
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex justify-end space-x-3 mt-4">
+                            <button id="cancel-add-category" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">
+                                Cancel
+                            </button>
+                            <button id="confirm-add-category" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 flex items-center">
+                                <span id="add-button-text">Add Selected Categories</span>
+                                <svg id="loading-spinner" class="hidden animate-spin ml-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category Creation Section -->
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h2 class="text-lg font-semibold">Create New Category</h2>
+                            <p class="text-sm text-gray-600 mt-1">Create new categories to organize your products. Categories can be organized in a three-level hierarchy.</p>
+                        </div>
+                        <button id="newCategoryBtn" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                            New Category
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category Creation Modal -->
+                <div id="categoryModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+                    <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                        <div class="mt-3">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-medium leading-6 text-gray-900">Create New Category</h3>
+                                <button id="cancelCategoryBtn" class="text-gray-400 hover:text-gray-500">
+                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <form id="categoryForm" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Category Name</label>
+                                    <input type="text" id="categoryName" class="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Category Level</label>
+                                    <select id="categoryLevel" class="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                                        <option value="">Select level...</option>
+                                        <option value="1">Level 1 (Top Level)</option>
+                                        <option value="2">Level 2 (Sub Category)</option>
+                                        <option value="3">Level 3 (Detailed Category)</option>
+                                    </select>
+                                </div>
+                                <div id="parentCategoryDiv" class="hidden">
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Parent Category</label>
+                                    <select id="parentCategory" class="w-full p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="">Select parent category...</option>
+                                    </select>
+                                </div>
+                                <div class="flex justify-end space-x-3 pt-4">
+                                    <button type="button" id="cancelCategoryBtn2" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">Cancel</button>
+                                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Create Category</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Success Message -->
+    <div id="success-message" class="hidden fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded shadow-lg transition-opacity duration-500 z-50">
+        Category successfully added!
+    </div>
+
+    <script>
+        // Global variables
+        let currentProductId = null;
+        let selectedCategories = new Set();
+        const exportCsvBtn = document.getElementById('export-csv-btn');
+        
+        // DOM Elements
+        const productSelect = document.getElementById('productSelect');
+        const productName = document.getElementById('product-name');
+        const productHandle = document.getElementById('product-handle');
+        const currentCategories = document.getElementById('current-categories');
+        const addCategoryBtn = document.getElementById('add-category-btn');
+        const addCategoryForm = document.getElementById('add-category-form');
+        const level1Categories = document.getElementById('level1-categories');
+        const level2Categories = document.getElementById('level2-categories');
+        const level3Categories = document.getElementById('level3-categories');
+        const selectedCategoriesContainer = document.getElementById('selected-categories');
+        const confirmAddCategory = document.getElementById('confirm-add-category');
+        const cancelAddCategory = document.getElementById('cancel-add-category');
+        const addButtonText = document.getElementById('add-button-text');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const successMessage = document.getElementById('success-message');
+        const createCategoryBtn = document.getElementById('newCategoryBtn');
+        const categoryModal = document.getElementById('categoryModal');
+        const categoryForm = document.getElementById('categoryForm');
+        const cancelCategoryBtn = document.getElementById('cancelCategoryBtn');
+        const categoryLevel = document.getElementById('categoryLevel');
+        const parentCategoryDiv = document.getElementById('parentCategoryDiv');
+        const parentCategory = document.getElementById('parentCategory');
+
+        // Format date for display
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const year = date.getFullYear();
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            const seconds = date.getSeconds().toString().padStart(2, '0');
+            
+            return `${day}-${month}-${year} at ${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update last modified notification
+        async function updateLastModifiedNotification(productId) {
+            try {
+                const response = await fetch(`/api/products/${productId}/last-modified`);
+                if (response.ok) {
+                    const data = await response.json();
+                    const productName = productSelect.options[productSelect.selectedIndex].text;
+                    lastModifiedText.textContent = `${productName} was modified on ${formatDate(data.last_modified)}`;
+                    lastModifiedNotification.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('Error fetching last modified timestamp:', error);
+            }
+        }
+
+        // Load products into dropdown
+        async function loadProducts() {
+            try {
+                const response = await fetch('/api/products');
+                const products = await response.json();
+                
+                productSelect.innerHTML = '<option value="">Select a product...</option>';
+                products.forEach(product => {
+                    const option = document.createElement('option');
+                    option.value = product.product_id;
+                    option.textContent = product.product_name;
+                    productSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading products:', error);
+            }
+        }
+
+        // Create category card element
+        function createCategoryCard(category, level) {
+            const card = document.createElement('div');
+            card.className = 'p-3 rounded-lg border border-gray-300 bg-white shadow-md hover:shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-0.5 inline-flex items-start text-left min-w-[120px] max-w-xs';
+            card.dataset.categoryId = category.id;
+            card.dataset.level = level;
+            
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `category-${category.id}`;
+            checkbox.className = 'mt-[3px] w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-1 focus:ring-offset-1 focus:ring-offset-white mr-2.5 shrink-0';
+            
+            const label = document.createElement('label');
+            label.htmlFor = `category-${category.id}`;
+            label.className = 'cursor-pointer text-sm font-medium text-gray-700';
+            label.textContent = category.name;
+            
+            card.appendChild(checkbox);
+            card.appendChild(label);
+            
+            // Add click handler for the entire card
+            card.addEventListener('click', (e) => {
+                if (e.target !== checkbox) {
+                    checkbox.checked = !checkbox.checked;
+                }
+                handleCategorySelection(category, checkbox.checked);
+            });
+            
+            return card;
+        }
+
+        // Handle category selection
+        function handleCategorySelection(category, isSelected) {
+            if (isSelected) {
+                selectedCategories.add(category.id);
+                // Load sub-categories if they exist
+                if (category.hasChildren) {
+                    loadSubCategories(category.id, parseInt(category.level) + 1);
+                }
+            } else {
+                selectedCategories.delete(category.id);
+                // Clear sub-categories if they exist
+                if (category.hasChildren) {
+                    clearSubCategories(parseInt(category.level) + 1);
+                }
+            }
+            updateSelectedCategoriesDisplay();
+        }
+
+        // Load sub-categories
+        async function loadSubCategories(parentId, level) {
+            const targetContainer = document.getElementById(`level${level}-categories`);
+            if (!targetContainer) return;
+            
+            try {
+                const response = await fetch(`/api/categories/level${level}/${parentId}`);
+                const categories = await response.json();
+                
+                // Don't clear existing categories, append new ones
+                categories.forEach(category => {
+                    // Check if category already exists
+                    const existingCard = targetContainer.querySelector(`[data-category-id="${category.id}"]`);
+                    if (!existingCard) {
+                        const card = createCategoryCard(category, level);
+                        targetContainer.appendChild(card);
+                    }
+                });
+            } catch (error) {
+                console.error(`Error loading level ${level} categories:`, error);
+            }
+        }
+
+        // Clear sub-categories
+        function clearSubCategories(level) {
+            const targetContainer = document.getElementById(`level${level}-categories`);
+            if (targetContainer) {
+                // Only remove categories that are children of the deselected parent
+                const cards = targetContainer.querySelectorAll(`[data-category-id]`);
+                cards.forEach(card => {
+                    const checkbox = card.querySelector('input[type="checkbox"]');
+                    if (checkbox && !checkbox.checked) {
+                        card.remove();
+                    }
+                });
+            }
+        }
+
+        // Update selected categories display
+        function updateSelectedCategoriesDisplay() {
+            selectedCategoriesContainer.innerHTML = '';
+            selectedCategories.forEach(categoryId => {
+                const chip = document.createElement('div');
+                chip.className = 'bg-blue-100 text-blue-800 px-4 py-2 rounded-lg text-sm font-medium flex items-center shadow-sm mr-2 mb-2';
+                
+                const name = document.createElement('span');
+                name.textContent = getCategoryName(categoryId);
+                
+                const removeBtn = document.createElement('button');
+                removeBtn.className = 'ml-2 text-blue-600 hover:text-blue-800 focus:outline-none';
+                removeBtn.innerHTML = '×';
+                removeBtn.onclick = () => {
+                    selectedCategories.delete(categoryId);
+                    updateSelectedCategoriesDisplay();
+                    // Uncheck the corresponding checkbox
+                    const checkbox = document.querySelector(`input[id="category-${categoryId}"]`);
+                    if (checkbox) {
+                        checkbox.checked = false;
+                    }
+                };
+                
+                chip.appendChild(name);
+                chip.appendChild(removeBtn);
+                selectedCategoriesContainer.appendChild(chip);
+            });
+        }
+
+        // Get category name from ID
+        function getCategoryName(categoryId) {
+            const card = document.querySelector(`[data-category-id="${categoryId}"]`);
+            return card ? card.querySelector('label').textContent : categoryId;
+        }
+
+        // Load initial categories
+        async function loadInitialCategories() {
+            try {
+                const response = await fetch('/api/categories/level1');
+                const categories = await response.json();
+                
+                level1Categories.innerHTML = '';
+                categories.forEach(category => {
+                    const card = createCategoryCard(category, 1);
+                    level1Categories.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Error loading initial categories:', error);
+            }
+        }
+
+        // Export CSV function
+        async function exportToCSV() {
+            if (!currentProductId) {
+                alert('Please select a product first');
+                return;
+            }
+
+            try {
+                // Show loading state
+                exportCsvBtn.disabled = true;
+                exportCsvBtn.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Exporting...
+                `;
+
+                const response = await fetch(`/api/export/csv?product_id=${currentProductId}`);
+                
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+
+                if (response.headers.get('content-length') === '0') {
+                    throw new Error('Empty response from server');
+                }
+
+                const blob = await response.blob();
+                const contentDisposition = response.headers.get('content-disposition');
+                let filename = 'categories_export.csv';
+                
+                if (contentDisposition) {
+                    const filenameMatch = contentDisposition.match(/filename="?(.+)"?/);
+                    if (filenameMatch && filenameMatch[1]) {
+                        filename = filenameMatch[1];
+                    }
+                }
+
+                // Create download link
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                a.remove();
+
+                showSuccessMessage('CSV exported successfully!');
+            } catch (error) {
+                console.error('Error exporting CSV:', error);
+                alert(`Error exporting CSV: ${error.message}`);
+            } finally {
+                // Reset button state
+                exportCsvBtn.disabled = false;
+                exportCsvBtn.innerHTML = `
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                    Export CSV
+                `;
+            }
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // CSV Export button
+            exportCsvBtn.addEventListener('click', exportToCSV);
+            // Product selection
+            productSelect.addEventListener('change', async (e) => {
+                currentProductId = e.target.value;
+                if (currentProductId) {
+                    await showProductDetails(currentProductId);
+                    // Reset categories
+                    selectedCategories.clear();
+                    updateSelectedCategoriesDisplay(); // Clear displayed categories
+                    clearAllSubCategories(); // Function to clear any sub-categories
+                } else {
+                    resetProductDetails();
+                }
+            });
+
+            // Add category button
+            addCategoryBtn.addEventListener('click', () => {
+                addCategoryForm.classList.remove('hidden');
+                selectedCategories.clear();
+                updateSelectedCategoriesDisplay();
+                loadInitialCategories();
+            });
+
+            // New Category button
+            const newCategoryBtn = document.getElementById('newCategoryBtn');
+            newCategoryBtn.addEventListener('click', () => {
+                categoryModal.classList.remove('hidden');
+            });
+
+            // Both cancel buttons should close the modal
+            [cancelCategoryBtn, document.getElementById('cancelCategoryBtn2')].forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryModal.classList.add('hidden');
+                    categoryForm.reset();
+                    parentCategoryDiv.classList.add('hidden');
+                });
+            });
+
+            // Level 1 selection
+            level1Categories.addEventListener('change', async (e) => {
+                const selectedValues = Array.from(e.target.selectedOptions, option => option.value);
+                if (selectedValues.length > 0) {
+                    await loadLevel2Categories(selectedValues[0]);
+                } else {
+                    level2Categories.innerHTML = '<option value="">Select Level 2 Category...</option>';
+                    level3Categories.innerHTML = '<option value="">Select Level 3 Category...</option>';
+                    level2Categories.disabled = true;
+                    level3Categories.disabled = true;
+                }
+            });
+
+            // Level 2 selection
+            level2Categories.addEventListener('change', async (e) => {
+                const selectedValues = Array.from(e.target.selectedOptions, option => option.value);
+                if (selectedValues.length > 0) {
+                    await loadLevel3Categories(selectedValues[0]);
+                } else {
+                    level3Categories.innerHTML = '<option value="">Select Level 3 Category...</option>';
+                    level3Categories.disabled = true;
+                }
+            });
+
+            // Confirm add category
+            confirmAddCategory.addEventListener('click', async () => {
+                if (selectedCategories.size === 0) {
+                    alert('Please select at least one category');
+                    return;
+                }
+                
+                try {
+                    setLoading(true);
+                    const response = await fetch(`/api/products/${currentProductId}/categories`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            category_ids: Array.from(selectedCategories)
+                        })
+                    });
+
+                    const result = await response.json();
+                    
+                    if (response.ok) {
+                        showSuccessMessage('Categories assigned successfully!');
+                        addCategoryForm.classList.add('hidden');
+                        selectedCategories.clear();
+                        updateSelectedCategoriesDisplay();
+                        await loadProductCategories(currentProductId);
+                    } else {
+                        alert(result.error || 'Error assigning categories');
+                    }
+                } catch (error) {
+                    console.error('Error assigning categories:', error);
+                    alert('Error assigning categories. Please try again.');
+                } finally {
+                    setLoading(false);
+                }
+            });
+
+            categoryLevel.addEventListener('change', async (e) => {
+                const level = e.target.value;
+                const parentDiv = document.getElementById('parentCategoryDiv');
+                const parentSelect = document.getElementById('parentCategory');
+                
+                if (level === '2' || level === '3') {
+                    parentDiv.classList.remove('hidden');
+                    // Clear existing options
+                    parentSelect.innerHTML = '<option value="">Select parent category...</option>';
+                    
+                    try {
+                        const response = await fetch('/api/categories/level1');
+                        const categories = await response.json();
+                        
+                        categories.forEach(category => {
+                            const option = document.createElement('option');
+                            option.value = category.id;
+                            option.textContent = category.name;
+                            parentSelect.appendChild(option);
+                        });
+                    } catch (error) {
+                        console.error('Error loading parent categories:', error);
+                    }
+                } else {
+                    parentDiv.classList.add('hidden');
+                }
+            });
+
+            categoryForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('categoryName').value;
+                const level = parseInt(document.getElementById('categoryLevel').value);
+                const parentId = document.getElementById('parentCategory').value;
+                
+                const data = {
+                    name,
+                    level,
+                    ...(level > 1 && { parent_id: parentId })
+                };
+                
+                try {
+                    const response = await fetch('/api/categories/create', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (response.ok) {
+                        showSuccessMessage('Category created successfully!');
+                        categoryModal.classList.add('hidden');
+                        categoryForm.reset();
+                        parentCategoryDiv.classList.add('hidden');
+                        // Refresh all category lists
+                        await refreshCategories();
+                    } else {
+                        let errorMessage = result.error;
+                        if (result.details) {
+                            const existing = result.details.existing_category;
+                            const attempted = result.details.attempted_category;
+                            errorMessage = `Cannot create category "${attempted.name}" as "${existing.name}" already exists.\n\n` +
+                                         `Existing category:\n` +
+                                         `- Level: ${existing.level}\n` +
+                                         `- Parent: ${existing.parent || 'None'}\n\n` +
+                                         `Attempted category:\n` +
+                                         `- Level: ${attempted.level}\n` +
+                                         `- Parent: ${attempted.parent || 'None'}`;
+                        }
+                        alert(errorMessage);
+                    }
+                } catch (error) {
+                    console.error('Error creating category:', error);
+                    alert('Error creating category. Please try again.');
+                }
+            });
+        }
+
+        // Show success message
+        function showSuccessMessage(message = 'Category successfully added!') {
+            successMessage.textContent = message;
+            successMessage.classList.remove('hidden');
+            successMessage.classList.add('opacity-100');
+            setTimeout(() => {
+                successMessage.classList.remove('opacity-100');
+                successMessage.classList.add('opacity-0');
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                    successMessage.classList.remove('opacity-0');
+                }, 500);
+            }, 3000);
+        }
+
+        // Show loading state
+        function setLoading(isLoading) {
+            if (isLoading) {
+                addButtonText.textContent = 'Adding...';
+                loadingSpinner.classList.remove('hidden');
+                confirmAddCategory.disabled = true;
+            } else {
+                addButtonText.textContent = 'Add';
+                loadingSpinner.classList.add('hidden');
+                confirmAddCategory.disabled = false;
+            }
+        }
+
+        // Show product details
+        async function showProductDetails(productId) {
+            try {
+                const [productsResponse, categoriesResponse] = await Promise.all([
+                    fetch('/api/products'),
+                    fetch('/api/categories')
+                ]);
+                
+                const products = await productsResponse.json();
+                const categories = await categoriesResponse.json();
+                const product = products.find(p => p.product_id === productId);
+                
+                if (product) {
+                    productName.textContent = product.product_name;
+                    productHandle.textContent = product.product_handle;
+                    // Load the product's categories
+                    await loadProductCategories(productId);
+                }
+            } catch (error) {
+                console.error('Error loading product details:', error);
+            }
+        }
+
+        // Load product categories
+        async function loadProductCategories(productId) {
+            try {
+                const response = await fetch(`/api/products/${productId}/categories`);
+                if (!response.ok) {
+                    throw new Error('Failed to load categories');
+                }
+                const categories = await response.json();
+                
+                // Clear existing categories
+                currentCategories.innerHTML = '';
+                
+                // Color mapping for different category levels
+                const levelColors = {
+                    1: 'bg-blue-100 text-blue-800 hover:bg-blue-200',
+                    2: 'bg-red-100 text-red-800 hover:bg-red-200',
+                    3: 'bg-green-100 text-green-800 hover:bg-green-200'
+                };
+                
+                // Add each category as a chip
+                categories.forEach(category => {
+                    const chip = document.createElement('div');
+                    const level = category.level || 1; // Default to level 1 if not specified
+                    const colorClass = levelColors[level] || levelColors[1]; // Default to level 1 colors if level not found
+                    
+                    chip.className = `inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium ${colorClass} mr-2 mb-2 shadow-sm transition-colors duration-200`;
+                    
+                    const text = document.createElement('span');
+                    text.textContent = category.name;
+                    chip.appendChild(text);
+                    
+                    // Add remove button with matching color
+                    const removeBtn = document.createElement('button');
+                    removeBtn.className = `ml-2 ${level === 1 ? 'text-blue-600 hover:text-blue-800' : 
+                                          level === 2 ? 'text-red-600 hover:text-red-800' : 
+                                          'text-green-600 hover:text-green-800'} focus:outline-none`;
+                    removeBtn.innerHTML = '×';
+                    removeBtn.onclick = async () => {
+                        try {
+                            const response = await fetch(`/api/products/${productId}/category/${category.id}`, {
+                                method: 'DELETE'
+                            });
+                            
+                            if (response.ok) {
+                                showSuccessMessage('Category removed successfully!');
+                                await loadProductCategories(productId);
+                            } else {
+                                const result = await response.json();
+                                alert(`Error: ${result.error}`);
+                            }
+                        } catch (error) {
+                            console.error('Error removing category:', error);
+                            alert('Error removing category. Please try again.');
+                        }
+                    };
+                    
+                    chip.appendChild(removeBtn);
+                    currentCategories.appendChild(chip);
+                });
+            } catch (error) {
+                console.error('Error loading product categories:', error);
+                currentCategories.innerHTML = '<div class="text-red-500">Error loading categories</div>';
+            }
+        }
+
+        // Initialize the app
+        function init() {
+            setupEventListeners();
+            loadProducts();
+        }
+
+        // Start the app
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
